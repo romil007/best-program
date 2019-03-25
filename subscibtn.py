@@ -1,30 +1,28 @@
 #Python Project related to web scrapping
 '''In this project input is to be given of which channel do you want and 
-   it will in return give recommendation of which pack is vmost useful and viable.
-   
-'''
+   it will in return give recommendation of which pack is vmost useful and viable.'''
+
 from bs4 import BeautifulSoup
 #from urllib.request import urlopen,Request
 import requests
 import pandas as pd
 import re
 import numpy as np
+
 url = 'https://www.tatasky.com/wps/portal/TataSky/packs/tata-sky-channels'
 
 '''request=Request(url)
 response=urlopen(request)
-
-# This is used as old method'''
+# This is used as urlib method which is modified recently'''
 
 # Packages the request, send the request and catch the response in variable 'channel_list'
 channel_list=requests.get(url)
 
 # Extract the response: text
 text=channel_list.text
-
 #print(text)
 # If we print whole code, might take time and memory so just take some part to check.
-#print(channel_list.text[:500])
+print(channel_list.text[:500])
 
 #Create a BeautifulSoup object from the HTML: soup
 soup = BeautifulSoup(text)
@@ -35,17 +33,7 @@ pretty_soup=soup.prettify()
 print(type(pretty_soup))
 print(pretty_soup[:500])
 
-'''# Get the title 
-tatasky_title=pretty_soup.title
-print(tatasky_title)'''
-# 'str' object has no attribute 'get_text'
-#asd=pretty_soup.get_text()
-'''# Find all 'a' tags (which define hyperlinks): a_tags
-a_tags=soup.find_all('a')
-#print(a_tags)
-# Print the URLs to the shell
-for link in a_tags:
-    print(link.get('href'))'''
+
 #Parse response.text by creating a BeautifulSoup object, and assign this object to html_soup. 
 #The 'html.parser' argument indicates that we want to do the parsing using Python’s built-in HTML parser.
 
@@ -65,14 +53,11 @@ channel_priceconatainer
 #type(channel_priceconatainer)
 #asd=channel_priceconatainer.text
 #asda=float(asd)
-#asda
 #type(asda)
 #type(asd)
 
 #print(channel_priceconatainer[2])
 
-
-import re
 
 #to solve by removing floats from span text
 #eg 
