@@ -91,14 +91,15 @@ for i in channel_containers:
     
 print(channel_lists[10:20])
 (print(channel_price))
+## converting data to dataframe##
 
 test_sets = pd.DataFrame({'channels':channel_lists,'price':channel_price})
-
 print(test_sets.info())
-
 
 test_sets.head()
 
++++++++++Till here one part of project is done to webscrap one set of data channels++++++++++
+#here second part of collecting data of packs and assigning channels to it
 
 
 
